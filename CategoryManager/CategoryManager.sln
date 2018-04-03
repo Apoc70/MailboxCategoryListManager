@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2024
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CategoryManager", "CategoryManager\CategoryManager.csproj", "{E0D3B491-7035-4249-A71F-26C73753CB1F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CategoryManagerCmd", "CategoryManagerCmd\CategoryManagerCmd.csproj", "{40E03355-33CA-4961-B419-D6F01226857C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E0D3B491-7035-4249-A71F-26C73753CB1F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E0D3B491-7035-4249-A71F-26C73753CB1F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E0D3B491-7035-4249-A71F-26C73753CB1F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E0D3B491-7035-4249-A71F-26C73753CB1F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{40E03355-33CA-4961-B419-D6F01226857C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{40E03355-33CA-4961-B419-D6F01226857C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{40E03355-33CA-4961-B419-D6F01226857C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{40E03355-33CA-4961-B419-D6F01226857C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {817AE629-0B09-4383-B589-7A6367B6EAA8}
+	EndGlobalSection
+EndGlobal
