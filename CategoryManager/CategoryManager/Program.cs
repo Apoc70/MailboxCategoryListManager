@@ -136,9 +136,6 @@ namespace CategoryManager
                     Environment.Exit(1);
                 }
 
-                Console.WriteLine("Pléase wait while establishing a connection...");
-                log.WriteDebugLog("Establishing connection to EWS endpoint");
-
                 if (arguments.URL.Length == 0)
                 {
                     // Autodiscover
@@ -169,7 +166,6 @@ namespace CategoryManager
                 {
                     int imported = CategoryHelper.Import(EWSService, arguments.ImportFile, arguments.ClearOnImport);
                     Console.WriteLine(string.Format("{0} categories imported", imported));
-                    log.WriteInfoLog(string.Format("{0} categories imported", imported));
                     Environment.Exit(0);
 
                 }

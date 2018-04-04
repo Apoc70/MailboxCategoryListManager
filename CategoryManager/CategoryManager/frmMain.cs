@@ -79,8 +79,8 @@ namespace CategoryManager
         private void BtnConnect_Click(object sender, EventArgs e)
         {
             btnConnect.Enabled = false;
+            Cursor.Current = Cursors.WaitCursor;
             lblAction.Text = "Establishing connection to EWS endpoint...";
-           
             if (ConnectToExchange())
             {
                 Connected = true;
@@ -89,20 +89,19 @@ namespace CategoryManager
             else
             {
                 Connected = false;
+                lblAction.Text = "Connection failed. Please check the log file";
             }
-        }
-
-        private void ImportToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            ImportCategories();
+            Cursor.Current = Cursors.Default;
         }
 
         private void BtnTransfer_Click(object sender, EventArgs e)
         {
-            btnCopy.Enabled = false;
-            lblAction.Text = "Please wait...";
+            Cursor.Current = Cursors.WaitCursor;
+            DisableButtons();
+            lblAction.Text = "Please wait while exporting categories";
             CopyCategories();
-            btnCopy.Enabled = true;
+            EnableButtons();
+            Cursor.Current = Cursors.Default;
         }
 
         private void ImportCategories()
@@ -168,7 +167,7 @@ namespace CategoryManager
             if (txtTargetAddress.Text.Length != 0)
             {
 
-                lblAction.Text = "Conneting to target mailbox...";
+                lblAction.Text = "Conneting to target mailbox";
                 try
                 {
                     TargetEWS = TargetHelper.Service(Settings.UseDefaultCredentials, Settings.User, Password, txtTargetAddress.Text, Settings.AllowRedirection, chkTargetMailboxImpersonate.Checked, Settings.IgnoreCertificateErrors);
@@ -203,14 +202,39 @@ namespace CategoryManager
 
         private void BtnImport_Click(object sender, EventArgs e)
         {
-            // Import
+            Cursor.Current = Cursors.WaitCursor;
+            lblAction.Text = "Please wait while importing categories";
+            DisableButtons();
             ImportCategories();
+            EnableButtons();
+            Cursor.Current = Cursors.Default;
         }
 
         private void BtnExport_Click(object sender, EventArgs e)
         {
-            // Export
+            Cursor.Current = Cursors.WaitCursor;
+            lblAction.Text = "Please wait while importing categories";
+            DisableButtons();
             ExportCategories();
+            EnableButtons();
+            Cursor.Current = Cursors.Default;
+            
+        }
+
+        private void DisableButtons()
+        {
+            btnCopy.Enabled = false;
+            btnImport.Enabled = false;
+            btnExport.Enabled = false;
+            btnConnect.Enabled = false;
+        }
+
+        private void EnableButtons()
+        {
+            btnCopy.Enabled = true;
+            btnImport.Enabled = true;
+            btnExport.Enabled = true;
+            btnConnect.Enabled = true;
         }
 
         private void TxtTargetAddress_TextChanged(object sender, EventArgs e)

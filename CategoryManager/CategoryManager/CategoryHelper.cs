@@ -54,7 +54,7 @@ namespace CategoryManager
                 {
                     targetCategoryList.Categories = CategoryList.Categories;
                     targetCategoryList.Update();
-                    log.WriteDebugLog("categories successfully imported");
+                    log.WriteInfoLog("categories successfully imported");
                     return CategoryList.Categories.Count;
                 }
                 else
@@ -185,6 +185,7 @@ namespace CategoryManager
                             importedCategories++;
                         }
                     }
+
                     targetCategoryList.Update();
                     return importedCategories;
                 }
