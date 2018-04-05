@@ -255,12 +255,21 @@ namespace CategoryManager
             {
                 Connected = false;
             }
+            if (txtMailbox.Text.Length > 0)
+            {
+                btnConnect.Enabled = true;
+            }
+            else
+            {
+                btnConnect.Enabled = false;
+            }
         }
 
         private void FrmMain_Load(object sender, EventArgs e)
         {
             log.WriteDebugLog("frmMain loaded.");
             LoadSettings();
+            btnConnect.Enabled = false;
         }
 
         private void LoadSettings()
