@@ -105,7 +105,7 @@
             // txtMailbox
             // 
             this.txtMailbox.Location = new System.Drawing.Point(238, 98);
-            this.txtMailbox.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.txtMailbox.Margin = new System.Windows.Forms.Padding(6);
             this.txtMailbox.Name = "txtMailbox";
             this.txtMailbox.Size = new System.Drawing.Size(518, 31);
             this.txtMailbox.TabIndex = 4;
@@ -115,7 +115,7 @@
             // 
             this.chkImpersonate.AutoSize = true;
             this.chkImpersonate.Location = new System.Drawing.Point(36, 160);
-            this.chkImpersonate.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.chkImpersonate.Margin = new System.Windows.Forms.Padding(6);
             this.chkImpersonate.Name = "chkImpersonate";
             this.chkImpersonate.Size = new System.Drawing.Size(162, 29);
             this.chkImpersonate.TabIndex = 5;
@@ -125,7 +125,7 @@
             // btnConnect
             // 
             this.btnConnect.Location = new System.Drawing.Point(238, 148);
-            this.btnConnect.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.btnConnect.Margin = new System.Windows.Forms.Padding(6);
             this.btnConnect.Name = "btnConnect";
             this.btnConnect.Size = new System.Drawing.Size(150, 44);
             this.btnConnect.TabIndex = 6;
@@ -137,7 +137,7 @@
             // 
             this.btnImport.Enabled = false;
             this.btnImport.Location = new System.Drawing.Point(12, 29);
-            this.btnImport.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.btnImport.Margin = new System.Windows.Forms.Padding(6);
             this.btnImport.Name = "btnImport";
             this.btnImport.Size = new System.Drawing.Size(150, 44);
             this.btnImport.TabIndex = 7;
@@ -149,7 +149,7 @@
             // 
             this.btnExport.Enabled = false;
             this.btnExport.Location = new System.Drawing.Point(572, 29);
-            this.btnExport.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.btnExport.Margin = new System.Windows.Forms.Padding(6);
             this.btnExport.Name = "btnExport";
             this.btnExport.Size = new System.Drawing.Size(150, 44);
             this.btnExport.TabIndex = 8;
@@ -161,7 +161,7 @@
             // 
             this.btnCopy.Enabled = false;
             this.btnCopy.Location = new System.Drawing.Point(200, 125);
-            this.btnCopy.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.btnCopy.Margin = new System.Windows.Forms.Padding(6);
             this.btnCopy.Name = "btnCopy";
             this.btnCopy.Size = new System.Drawing.Size(150, 44);
             this.btnCopy.TabIndex = 11;
@@ -171,13 +171,16 @@
             // 
             // tabControlTools
             // 
+            this.tabControlTools.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.tabControlTools.Controls.Add(this.tabPageImporrtExport);
             this.tabControlTools.Controls.Add(this.tabCopyTransfer);
             this.tabControlTools.Location = new System.Drawing.Point(30, 237);
-            this.tabControlTools.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.tabControlTools.Margin = new System.Windows.Forms.Padding(6);
             this.tabControlTools.Name = "tabControlTools";
             this.tabControlTools.SelectedIndex = 0;
-            this.tabControlTools.Size = new System.Drawing.Size(846, 327);
+            this.tabControlTools.Size = new System.Drawing.Size(1287, 327);
             this.tabControlTools.TabIndex = 12;
             this.tabControlTools.Visible = false;
             // 
@@ -187,10 +190,10 @@
             this.tabPageImporrtExport.Controls.Add(this.btnImport);
             this.tabPageImporrtExport.Controls.Add(this.btnExport);
             this.tabPageImporrtExport.Location = new System.Drawing.Point(8, 39);
-            this.tabPageImporrtExport.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.tabPageImporrtExport.Margin = new System.Windows.Forms.Padding(6);
             this.tabPageImporrtExport.Name = "tabPageImporrtExport";
-            this.tabPageImporrtExport.Padding = new System.Windows.Forms.Padding(6, 6, 6, 6);
-            this.tabPageImporrtExport.Size = new System.Drawing.Size(830, 280);
+            this.tabPageImporrtExport.Padding = new System.Windows.Forms.Padding(6);
+            this.tabPageImporrtExport.Size = new System.Drawing.Size(1271, 280);
             this.tabPageImporrtExport.TabIndex = 0;
             this.tabPageImporrtExport.Text = "Import/Export";
             this.tabPageImporrtExport.UseVisualStyleBackColor = true;
@@ -199,11 +202,11 @@
             // 
             this.chkClearOnImport.AutoSize = true;
             this.chkClearOnImport.Location = new System.Drawing.Point(12, 85);
-            this.chkClearOnImport.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.chkClearOnImport.Margin = new System.Windows.Forms.Padding(6);
             this.chkClearOnImport.Name = "chkClearOnImport";
-            this.chkClearOnImport.Size = new System.Drawing.Size(260, 29);
+            this.chkClearOnImport.Size = new System.Drawing.Size(420, 29);
             this.chkClearOnImport.TabIndex = 10;
-            this.chkClearOnImport.Text = "Clear list before import";
+            this.chkClearOnImport.Text = "Clear master category list before import";
             this.chkClearOnImport.UseVisualStyleBackColor = true;
             // 
             // tabCopyTransfer
@@ -214,10 +217,10 @@
             this.tabCopyTransfer.Controls.Add(this.txtTargetAddress);
             this.tabCopyTransfer.Controls.Add(this.btnCopy);
             this.tabCopyTransfer.Location = new System.Drawing.Point(8, 39);
-            this.tabCopyTransfer.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.tabCopyTransfer.Margin = new System.Windows.Forms.Padding(6);
             this.tabCopyTransfer.Name = "tabCopyTransfer";
-            this.tabCopyTransfer.Padding = new System.Windows.Forms.Padding(6, 6, 6, 6);
-            this.tabCopyTransfer.Size = new System.Drawing.Size(830, 280);
+            this.tabCopyTransfer.Padding = new System.Windows.Forms.Padding(6);
+            this.tabCopyTransfer.Size = new System.Drawing.Size(1271, 280);
             this.tabCopyTransfer.TabIndex = 1;
             this.tabCopyTransfer.Text = "Copy";
             this.tabCopyTransfer.UseVisualStyleBackColor = true;
@@ -226,18 +229,18 @@
             // 
             this.chkClearTargetListBeforeImport.AutoSize = true;
             this.chkClearTargetListBeforeImport.Location = new System.Drawing.Point(18, 177);
-            this.chkClearTargetListBeforeImport.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.chkClearTargetListBeforeImport.Margin = new System.Windows.Forms.Padding(6);
             this.chkClearTargetListBeforeImport.Name = "chkClearTargetListBeforeImport";
-            this.chkClearTargetListBeforeImport.Size = new System.Drawing.Size(260, 29);
+            this.chkClearTargetListBeforeImport.Size = new System.Drawing.Size(420, 29);
             this.chkClearTargetListBeforeImport.TabIndex = 14;
-            this.chkClearTargetListBeforeImport.Text = "Clear list before import";
+            this.chkClearTargetListBeforeImport.Text = "Clear master category list before import";
             this.chkClearTargetListBeforeImport.UseVisualStyleBackColor = true;
             // 
             // chkTargetMailboxImpersonate
             // 
             this.chkTargetMailboxImpersonate.AutoSize = true;
             this.chkTargetMailboxImpersonate.Location = new System.Drawing.Point(18, 133);
-            this.chkTargetMailboxImpersonate.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.chkTargetMailboxImpersonate.Margin = new System.Windows.Forms.Padding(6);
             this.chkTargetMailboxImpersonate.Name = "chkTargetMailboxImpersonate";
             this.chkTargetMailboxImpersonate.Size = new System.Drawing.Size(162, 29);
             this.chkTargetMailboxImpersonate.TabIndex = 13;
@@ -257,7 +260,7 @@
             // txtTargetAddress
             // 
             this.txtTargetAddress.Location = new System.Drawing.Point(200, 42);
-            this.txtTargetAddress.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.txtTargetAddress.Margin = new System.Windows.Forms.Padding(6);
             this.txtTargetAddress.Name = "txtTargetAddress";
             this.txtTargetAddress.Size = new System.Drawing.Size(312, 31);
             this.txtTargetAddress.TabIndex = 12;
@@ -296,7 +299,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip;
-            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.Margin = new System.Windows.Forms.Padding(6);
             this.MaximizeBox = false;
             this.Name = "FrmMain";
             this.Text = "Manage Categories";
