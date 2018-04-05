@@ -7,6 +7,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CategoryManager", "Category
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CategoryManagerCmd", "CategoryManagerCmd\CategoryManagerCmd.csproj", "{40E03355-33CA-4961-B419-D6F01226857C}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{ECB76E0E-AB88-4A21-83B5-A2D6BDC5C8F4}"
+	ProjectSection(SolutionItems) = preProject
+		Ressources\CategoryManager.ico = Ressources\CategoryManager.ico
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
