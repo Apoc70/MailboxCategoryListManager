@@ -11,6 +11,9 @@ using System.Windows.Forms;
 using Microsoft.Exchange.WebServices.Data;
 using System.Xml.Serialization;
 using System.Security;
+using System.Resources;
+
+[assembly: NeutralResourcesLanguage("en", UltimateResourceFallbackLocation.Satellite)]
 
 namespace CategoryManager
 {

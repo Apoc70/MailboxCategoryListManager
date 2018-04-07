@@ -20,6 +20,9 @@ using log4net;
 using System.Runtime.InteropServices;
 using Microsoft.Exchange.WebServices.Data;
 using System.Security;
+using System.Globalization;
+using System.Resources;
+using System.Threading;
 
 namespace CategoryManager
 {
@@ -41,6 +44,10 @@ namespace CategoryManager
         [STAThread]
         static void Main(string[] args)
         {
+            CultureInfo ci = new CultureInfo("en-US");
+            Thread.CurrentThread.CurrentCulture = ci;
+            Thread.CurrentThread.CurrentUICulture = ci;
+
             log.WriteDebugLog("Main() started");
             var arguments = new UtilityArguments(args);
             string Mailbox, User, URL, Key;
