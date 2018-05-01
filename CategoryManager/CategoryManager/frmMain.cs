@@ -269,6 +269,7 @@ namespace CategoryManager
         {
             log.WriteDebugLog("frmMain loaded.");
             LoadSettings();
+            SaveSettings();
             btnConnect.Enabled = false;
         }
 

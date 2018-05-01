@@ -75,7 +75,7 @@
             this.btnChangePassword.TabIndex = 5;
             this.btnChangePassword.Text = "Change &Password";
             this.btnChangePassword.UseVisualStyleBackColor = true;
-            this.btnChangePassword.Click += new System.EventHandler(this.btnChangePassword_Click);
+            this.btnChangePassword.Click += new System.EventHandler(this.BtnChangePassword_Click);
             // 
             // txtPassword
             // 
@@ -95,7 +95,7 @@
             this.txtUser.Name = "txtUser";
             this.txtUser.Size = new System.Drawing.Size(600, 31);
             this.txtUser.TabIndex = 3;
-            this.txtUser.TextChanged += new System.EventHandler(this.txtUser_TextChanged);
+            this.txtUser.TextChanged += new System.EventHandler(this.TxtUser_TextChanged);
             // 
             // lblPassword
             // 
@@ -129,7 +129,7 @@
             this.chkUseDefaultCredentials.TabIndex = 0;
             this.chkUseDefaultCredentials.Text = "Use default credentials";
             this.chkUseDefaultCredentials.UseVisualStyleBackColor = true;
-            this.chkUseDefaultCredentials.CheckedChanged += new System.EventHandler(this.chkDefaultCredentials_CheckedChanged);
+            this.chkUseDefaultCredentials.CheckedChanged += new System.EventHandler(this.ChkDefaultCredentials_CheckedChanged);
             // 
             // grpConnectionSettings
             // 
@@ -202,7 +202,7 @@
             this.chkAutodiscover.TabIndex = 0;
             this.chkAutodiscover.Text = "Use Autodiscover";
             this.chkAutodiscover.UseVisualStyleBackColor = true;
-            this.chkAutodiscover.CheckedChanged += new System.EventHandler(this.chkAutodiscover_CheckedChanged);
+            this.chkAutodiscover.CheckedChanged += new System.EventHandler(this.ChkAutodiscover_CheckedChanged);
             // 
             // btnOK
             // 
@@ -213,7 +213,7 @@
             this.btnOK.TabIndex = 2;
             this.btnOK.Text = "&OK";
             this.btnOK.UseVisualStyleBackColor = true;
-            this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
+            this.btnOK.Click += new System.EventHandler(this.BtnOK_Click);
             // 
             // btnCancel
             // 
@@ -225,7 +225,7 @@
             this.btnCancel.TabIndex = 3;
             this.btnCancel.Text = "&Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
-            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+            this.btnCancel.Click += new System.EventHandler(this.BtnCancel_Click);
             // 
             // FrmSettings
             // 

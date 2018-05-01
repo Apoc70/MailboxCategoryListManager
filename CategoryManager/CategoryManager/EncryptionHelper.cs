@@ -126,18 +126,16 @@ namespace CategoryManager
 
         private static byte[] GetRandomBytes(int SaltBytes)
         {
-            int saltLength = SaltBytes;
-            byte[] ba = new byte[saltLength];
+            byte[] ba = new byte[SaltBytes];
             RNGCryptoServiceProvider.Create().GetBytes(ba);
             return ba;
         }
 
         public static string GetRandomKey(int Length)
         {
-            int saltLength = Length;
-            byte[] ba = new byte[saltLength];
+            byte[] ba = new byte[Length];
             RNGCryptoServiceProvider.Create().GetBytes(ba);
-            return Base64Encode(ba.ToString());
+            return Base64Encode(String.Join("", ba));
         }
 
         public static string Base64Encode(string plainText)
