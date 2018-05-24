@@ -54,7 +54,7 @@ namespace CategoryManager
             chkAlloRedirection.Checked = formSettings.AllowRedirection;
         }
 
-        private void chkDefaultCredentials_CheckedChanged(object sender, EventArgs e)
+        private void ChkDefaultCredentials_CheckedChanged(object sender, EventArgs e)
         {
             if (chkUseDefaultCredentials.Checked)
             {
@@ -69,7 +69,7 @@ namespace CategoryManager
             
         }
 
-        private void chkAutodiscover_CheckedChanged(object sender, EventArgs e)
+        private void ChkAutodiscover_CheckedChanged(object sender, EventArgs e)
         {
             if (chkAutodiscover.Checked)
             {
@@ -82,7 +82,7 @@ namespace CategoryManager
         }
 
 
-        private void btnOK_Click(object sender, EventArgs e)
+        private void BtnOK_Click(object sender, EventArgs e)
         {
             bool checkSucceded = false;
 
@@ -155,18 +155,18 @@ namespace CategoryManager
             }
         }
 
-        private void btnCancel_Click(object sender, EventArgs e)
+        private void BtnCancel_Click(object sender, EventArgs e)
         {
             this.DialogResult = DialogResult.Cancel;
             this.Close();
         }
 
-        private void btnChangePassword_Click(object sender, EventArgs e)
+        private void BtnChangePassword_Click(object sender, EventArgs e)
         {
             txtPassword.Enabled = true;
         }
 
-        private void txtUser_TextChanged(object sender, EventArgs e)
+        private void TxtUser_TextChanged(object sender, EventArgs e)
         {
             txtPassword.Enabled = true;
             btnChangePassword.Enabled = false;

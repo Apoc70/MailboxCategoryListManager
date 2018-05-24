@@ -92,6 +92,7 @@ namespace CategoryManager
             try
             {
                 var CategoryList = MasterCategoryList.Bind(Service);
+                // Note: if you connect to a mailbox without an CategoryList you will not get an exception for the first time, after EWS throws an System.ArgumentNullException
 
                 if (CategoryList != null)
                 {
