@@ -150,12 +150,16 @@ namespace CategoryManager
                         }
                         else
                         {
-                            MessageBox.Show("Error on exporting. Please consult the log file.", "Export error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            MessageBox.Show("No categories exported.", "Nothing to export", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
                     }
                     catch(System.ArgumentNullException)
                     {
-                        MessageBox.Show("The category list empty. No file written", "Nothing to export", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("The category list empty. No file written.", "Nothing to export", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    catch
+                    {
+                        MessageBox.Show("Error on export. Please consult the log file.", "Error on export", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
             }
