@@ -207,7 +207,7 @@ namespace CategoryManager
         private void BtnImport_Click(object sender, EventArgs e)
         {
             Cursor.Current = Cursors.WaitCursor;
-            lblAction.Text = "Please wait while importing categories";
+            lblAction.Text = "Please wait while importing categories...";
             DisableButtons();
             ImportCategories();
             EnableButtons();
@@ -217,7 +217,7 @@ namespace CategoryManager
         private void BtnExport_Click(object sender, EventArgs e)
         {
             Cursor.Current = Cursors.WaitCursor;
-            lblAction.Text = "Please wait while importing categories";
+            lblAction.Text = "Please wait while exporting categories...";
             DisableButtons();
             ExportCategories();
             EnableButtons();

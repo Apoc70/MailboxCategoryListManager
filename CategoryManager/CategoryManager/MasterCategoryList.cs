@@ -65,10 +65,17 @@ namespace CategoryManager
             catch(System.ArgumentNullException)
             {
                 // There is a folder but it didn't have any categories
-                throw new System.ArgumentNullException();
+                // Create an empty list and return it
+                var item = UserConfiguration.Bind(service, "CategoryList", WellKnownFolderName.Calendar,
+                                               UserConfigurationProperties.XmlData);
+                var result = new MasterCategoryList();
+                result.Categories = new List<Category>();
+                result._UserConfigurationItem = item;
+                return result;
             }
             catch(Exception ex)
             {
+                // Seems there is no MasterCategoryList, we will try to create a new one
                 log.WriteErrorLog(ex.ToString());
                 log.WriteErrorLog(ex.Message);
                 return CreateNewMasterCartegories(service);
