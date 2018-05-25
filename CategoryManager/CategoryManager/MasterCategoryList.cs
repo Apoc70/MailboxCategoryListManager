@@ -49,12 +49,13 @@ namespace CategoryManager
 		[XmlAttribute("lastSavedTime")]
 		public DateTime LastSavedTime { get; set; }
 
-		public static MasterCategoryList Bind(ExchangeService service)
+		public static MasterCategoryList Bind(ExchangeService service, string smtpAddress)
 		{
             try
             {
-                var item = UserConfiguration.Bind(service, "CategoryList", WellKnownFolderName.Calendar,
-                                               UserConfigurationProperties.XmlData);
+                FolderId TargetFolder = new FolderId(WellKnownFolderName.Calendar, smtpAddress);
+                //var item = UserConfiguration.Bind(service, "CategoryList", WellKnownFolderName.Calendar, UserConfigurationProperties.XmlData);
+                var item = UserConfiguration.Bind(service, "CategoryList", TargetFolder, UserConfigurationProperties.XmlData);
 
                 var reader = new StreamReader(new MemoryStream(item.XmlData), Encoding.UTF8, true);
                 var serializer = new XmlSerializer(typeof(MasterCategoryList));
@@ -66,7 +67,8 @@ namespace CategoryManager
             {
                 // There is a folder but it didn't have any categories
                 // Create an empty list and return it
-                var item = UserConfiguration.Bind(service, "CategoryList", WellKnownFolderName.Calendar,
+                FolderId TargetFolder = new FolderId(WellKnownFolderName.Calendar, smtpAddress);
+                var item = UserConfiguration.Bind(service, "CategoryList", TargetFolder,
                                                UserConfigurationProperties.XmlData);
                 var result = new MasterCategoryList();
                 result.Categories = new List<Category>();
@@ -120,6 +122,7 @@ namespace CategoryManager
             catch
             {
                 log.WriteErrorLog("Updating categories failed.");
+                throw new Exception();
             }
 		} 
 	}

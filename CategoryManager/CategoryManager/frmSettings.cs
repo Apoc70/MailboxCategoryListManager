@@ -60,6 +60,8 @@ namespace CategoryManager
             {
                 txtUser.Enabled = false;
                 txtPassword.Enabled = false;
+                txtUser.Text = "";
+                txtPassword.Text = "";
             }
             else
             {
@@ -114,6 +116,8 @@ namespace CategoryManager
             else
             {
                 formSettings.UseDefaultCredentials = chkUseDefaultCredentials.Checked;
+                formSettings.User = "";
+                formSettings.Password = "";
                 checkSucceded = true;
             }
 

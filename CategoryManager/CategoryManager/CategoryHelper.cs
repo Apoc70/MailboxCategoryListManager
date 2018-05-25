@@ -13,7 +13,7 @@ namespace CategoryManager
     {
         private static readonly LogHelper log = new LogHelper();
 
-        public static int Import(ExchangeService Service, string FileName, bool ClearOnImport)
+        public static int Import(ExchangeService Service, string FileName, bool ClearOnImport, string TargetAddress)
         {
             var CategoryList = new MasterCategoryList();
             log.WriteInfoLog(string.Format("Loading XML file: {0}", FileName));
@@ -34,7 +34,7 @@ namespace CategoryManager
             {
                 log.WriteInfoLog("Importing categories to mailbox");
 
-                var targetCategoryList = MasterCategoryList.Bind(Service);
+                var targetCategoryList = MasterCategoryList.Bind(Service, TargetAddress);
                 if (ClearOnImport)
                 {
                     if (targetCategoryList.Categories.Count > 0)
@@ -87,11 +87,11 @@ namespace CategoryManager
             }
         }
 
-        public static int Export(ExchangeService Service, string FileName)
+        public static int Export(ExchangeService Service, string FileName, string TargetAddress)
         {
             try
             {
-                var CategoryList = MasterCategoryList.Bind(Service);
+                var CategoryList = MasterCategoryList.Bind(Service, TargetAddress);
                 // Note: if you connect to a mailbox without an CategoryList you will not get an exception for the first time, after EWS throws an System.ArgumentNullException
 
                 if (CategoryList != null)
@@ -146,14 +146,14 @@ namespace CategoryManager
             }
         }
 
-        public static int CopyCategories(ExchangeService SourceService, ExchangeService TargetService, bool ClearOnImport)
+        public static int CopyCategories(ExchangeService SourceService, ExchangeService TargetService, bool ClearOnImport, string SourceAddress, string TargetAddress)
         {
             if (SourceService != null && TargetService != null)
             {
                 log.WriteInfoLog("Loading source and target categories.");
                 // Loading source and target
-                var sourceCategoryList = MasterCategoryList.Bind(SourceService);
-                var targetCategoryList = MasterCategoryList.Bind(TargetService);
+                var sourceCategoryList = MasterCategoryList.Bind(SourceService, SourceAddress);
+                var targetCategoryList = MasterCategoryList.Bind(TargetService, TargetAddress);
 
                 if (ClearOnImport)
                 {
