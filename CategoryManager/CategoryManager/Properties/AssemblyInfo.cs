@@ -7,7 +7,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyDescription("Manage Exchange mailbox master category list using Exchange Web Services.")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("ManageCategories")]
+[assembly: AssemblyProduct("MailboxCategoryListManager")]
 [assembly: AssemblyCopyright("Copyright © 2018 | Published under MIT License")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
