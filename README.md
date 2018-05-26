@@ -77,10 +77,37 @@ Use the _Settings_ form to provide static credentials for connecting to Exchange
 
 If you want to provide static credentials deactivate the _Use default credentials_ checkbox and enter the _username_ and _password_.
 
+![Category List Manager - Settings - Credentials](https://github.com/Apoc70/MailboxCategoryListManager/blob/master/DocumentationImages/02d-ManageCategories-Settings-ConnectionSettings.png)
 
+If you want to provide a static EWS Url deactivate the _Use AutoDiscover_ checkbox and enter a full EWS Url, e.g. _https://ews.varunagroup.de/EWS/Exchange.asmx_
+
+The _Ignore Certificate errors_ checkbox should only be activated, when your on-premises EWS endpoint uses self-signed certificates or you are encountering any other _weird_ certificate issues.
+
+The _Allow redirection_ checkbox should be activated, as this is a requirement for allowing any Url changes during EWS connection establishment.
 
 Changes made to the settings configuration are saved by clicking the _OK_ button.
 
 The settings are persisted. The password provided is encrypted using AES 256 encryption.
 
+## Questions / Issues
 
+If you have any questions about this solution or found an issue you would like to have fixed, please create a new [issue](https://github.com/Apoc70/MailboxCategoryListManager/issues/new).
+
+## Credits
+
+Written by: Torsten Schlopsnies, Thomas Stensitzki
+
+Stay connected:
+
+* Torsten @Twitter: [https://twitter.com/t_eschl](https://twitter.com/t_eschl)
+
+* Thomas' Blog: [http://justcantgetenough.granikos.eu](http://justcantgetenough.granikos.eu)
+* Thomas @Twitter: [https://twitter.com/stensitzki](https://twitter.com/stensitzki)
+* Thomas @LinkedIn: [http://de.linkedin.com/in/thomasstensitzki](http://de.linkedin.com/in/thomasstensitzki)
+* Github: [https://github.com/Apoc70](https://github.com/Apoc70)
+
+For more Office 365, Cloud Security, and Exchange Server stuff checkout services provided by Granikos
+
+* Blog: [http://blog.granikos.eu](http://blog.granikos.eu)
+* Website: [https://www.granikos.eu/en/](https://www.granikos.eu/en/)
+* Twitter: [https://twitter.com/granikos_de](https://twitter.com/granikos_de)
