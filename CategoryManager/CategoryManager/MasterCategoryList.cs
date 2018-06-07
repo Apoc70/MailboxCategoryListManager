@@ -54,7 +54,6 @@ namespace CategoryManager
             try
             {
                 FolderId TargetFolder = new FolderId(WellKnownFolderName.Calendar, smtpAddress);
-                //var item = UserConfiguration.Bind(service, "CategoryList", WellKnownFolderName.Calendar, UserConfigurationProperties.XmlData);
                 var item = UserConfiguration.Bind(service, "CategoryList", TargetFolder, UserConfigurationProperties.XmlData);
 
                 var reader = new StreamReader(new MemoryStream(item.XmlData), Encoding.UTF8, true);
