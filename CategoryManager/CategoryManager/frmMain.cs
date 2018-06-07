@@ -49,6 +49,9 @@ namespace CategoryManager
                     btnCopy.Enabled = false;
                     tabControlTools.Visible = false;
                     btnConnect.Enabled = true;
+                    chkClearTargetListBeforeImport.Checked = false;
+                    chkTargetMailboxImpersonate.Checked = false;
+                    chkTargetMailboxImpersonate.Checked = false;
                 }
             }
         }
