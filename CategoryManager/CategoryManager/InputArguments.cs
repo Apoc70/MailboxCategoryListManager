@@ -3,6 +3,9 @@ using System.Collections.Generic;
  
 namespace CategoryManager
 {
+    /// <summary>
+    /// Class to manage command line parameters
+    /// </summary>
     public class InputArguments
     {
         #region fields & properties

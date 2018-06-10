@@ -8,8 +8,16 @@ using System.Threading.Tasks;
 
 namespace CategoryManager
 {
+    /// <summary>
+    /// Helper class for SecureString
+    /// </summary>
     public class SecureStringHelper
     {
+        /// <summary>
+        /// Change a string to a SecureString
+        /// </summary>
+        /// <param name="value">String need to be secured</param>
+        /// <returns>SecureString</returns>
         public static SecureString StringToSecureString(string value)
         {
             if (value != null)
@@ -27,6 +35,11 @@ namespace CategoryManager
             }
         }
 
+        /// <summary>
+        /// Change a SecureString into a String
+        /// </summary>
+        /// <param name="value">SecureString needs to be changed</param>
+        /// <returns>String</returns>
         public static string SecureStringToString(SecureString value)
         {
             if (value != null)

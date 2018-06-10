@@ -13,6 +13,14 @@ namespace CategoryManager
     {
         private static readonly LogHelper log = new LogHelper();
 
+        /// <summary>
+        /// Import categories from a file into the MasterCategoryList in the target mailbox
+        /// </summary>
+        /// <param name="Service">EWS service</param>
+        /// <param name="FileName">Full path of the file name</param>
+        /// <param name="ClearOnImport">If set all categories is the target mailbox will be deleted before import</param>
+        /// <param name="TargetAddress">SMTP address from the target mailbox</param>
+        /// <returns>Count of imported categories</returns>
         public static int Import(ExchangeService Service, string FileName, bool ClearOnImport, string TargetAddress)
         {
             var CategoryList = new MasterCategoryList();
@@ -87,6 +95,13 @@ namespace CategoryManager
             }
         }
 
+        /// <summary>
+        /// Export categories from the target mailbox into a file
+        /// </summary>
+        /// <param name="Service">EWS service</param>
+        /// <param name="FileName">Full path of the file name</param>
+        /// <param name="TargetAddress">SMTP address from the target mailbox</param>
+        /// <returns>Count of exported categories</returns>
         public static int Export(ExchangeService Service, string FileName, string TargetAddress)
         {
             try
@@ -146,6 +161,15 @@ namespace CategoryManager
             }
         }
 
+        /// <summary>
+        /// Copy categores from a source mailbox into the target mailbox
+        /// </summary>
+        /// <param name="SourceService">EWS service (source mailbox)</param>
+        /// <param name="TargetService">EWS service (target mailbox)</param>
+        /// <param name="ClearOnImport">>If set all categories is the target mailbox will be deleted before import</param>
+        /// <param name="SourceAddress">SMTP address from the source mailbox</param>
+        /// <param name="TargetAddress">SMTP address from the target mailbox</param>
+        /// <returns>Count of copied categories</returns>
         public static int CopyCategories(ExchangeService SourceService, ExchangeService TargetService, bool ClearOnImport, string SourceAddress, string TargetAddress)
         {
             if (SourceService != null && TargetService != null)

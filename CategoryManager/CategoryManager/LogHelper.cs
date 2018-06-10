@@ -7,6 +7,9 @@ using log4net;
 
 namespace CategoryManager
 {
+    /// <summary>
+    /// Class to manage log4net
+    /// </summary>
     public class LogHelper
     {
         private static ILog _Logger;
