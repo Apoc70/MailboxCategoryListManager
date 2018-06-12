@@ -84,7 +84,7 @@ namespace CategoryManager
                         }
                     }
                     targetCategoryList.Update();
-                    log.WriteInfoLog("categories successfully imported");
+                    log.WriteInfoLog(string.Format("{0} Categories successfully imported", importedCategories));
                     return importedCategories;
                 }
             }
@@ -125,7 +125,7 @@ namespace CategoryManager
 
                                 writer.Serialize(file, CategoryList);
                                 file.Close();
-                                log.WriteInfoLog(string.Format("Categories successfully saved to file: {0}", FileName));
+                                log.WriteInfoLog(string.Format("{0} Categories successfully saved to file: {1}", CategoryList.Categories.Count ,FileName));
                                 return CategoryList.Categories.Count;
                             }
                         }
