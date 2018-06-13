@@ -13,7 +13,15 @@ namespace CategoryManager
     {
         private static readonly LogHelper log = new LogHelper();
 
-        public static int Import(ExchangeService Service, string FileName, bool ClearOnImport)
+        /// <summary>
+        /// Import categories from a file into the MasterCategoryList in the target mailbox
+        /// </summary>
+        /// <param name="Service">EWS service</param>
+        /// <param name="FileName">Full path of the file name</param>
+        /// <param name="ClearOnImport">If set all categories is the target mailbox will be deleted before import</param>
+        /// <param name="TargetAddress">SMTP address from the target mailbox</param>
+        /// <returns>Count of imported categories</returns>
+        public static int Import(ExchangeService Service, string FileName, bool ClearOnImport, string TargetAddress)
         {
             var CategoryList = new MasterCategoryList();
             log.WriteInfoLog(string.Format("Loading XML file: {0}", FileName));
@@ -34,7 +42,7 @@ namespace CategoryManager
             {
                 log.WriteInfoLog("Importing categories to mailbox");
 
-                var targetCategoryList = MasterCategoryList.Bind(Service);
+                var targetCategoryList = MasterCategoryList.Bind(Service, TargetAddress);
                 if (ClearOnImport)
                 {
                     if (targetCategoryList.Categories.Count > 0)
@@ -76,7 +84,7 @@ namespace CategoryManager
                         }
                     }
                     targetCategoryList.Update();
-                    log.WriteInfoLog("categories successfully imported");
+                    log.WriteInfoLog(string.Format("{0} Categories successfully imported", importedCategories));
                     return importedCategories;
                 }
             }
@@ -87,11 +95,18 @@ namespace CategoryManager
             }
         }
 
-        public static int Export(ExchangeService Service, string FileName)
+        /// <summary>
+        /// Export categories from the target mailbox into a file
+        /// </summary>
+        /// <param name="Service">EWS service</param>
+        /// <param name="FileName">Full path of the file name</param>
+        /// <param name="TargetAddress">SMTP address from the target mailbox</param>
+        /// <returns>Count of exported categories</returns>
+        public static int Export(ExchangeService Service, string FileName, string TargetAddress)
         {
             try
             {
-                var CategoryList = MasterCategoryList.Bind(Service);
+                var CategoryList = MasterCategoryList.Bind(Service, TargetAddress);
                 // Note: if you connect to a mailbox without an CategoryList you will not get an exception for the first time, after EWS throws an System.ArgumentNullException
 
                 if (CategoryList != null)
@@ -110,7 +125,7 @@ namespace CategoryManager
 
                                 writer.Serialize(file, CategoryList);
                                 file.Close();
-                                log.WriteInfoLog(string.Format("Categories successfully saved to file: {0}", FileName));
+                                log.WriteInfoLog(string.Format("{0} Categories successfully saved to file: {1}", CategoryList.Categories.Count ,FileName));
                                 return CategoryList.Categories.Count;
                             }
                         }
@@ -146,14 +161,23 @@ namespace CategoryManager
             }
         }
 
-        public static int CopyCategories(ExchangeService SourceService, ExchangeService TargetService, bool ClearOnImport)
+        /// <summary>
+        /// Copy categores from a source mailbox into the target mailbox
+        /// </summary>
+        /// <param name="SourceService">EWS service (source mailbox)</param>
+        /// <param name="TargetService">EWS service (target mailbox)</param>
+        /// <param name="ClearOnImport">>If set all categories is the target mailbox will be deleted before import</param>
+        /// <param name="SourceAddress">SMTP address from the source mailbox</param>
+        /// <param name="TargetAddress">SMTP address from the target mailbox</param>
+        /// <returns>Count of copied categories</returns>
+        public static int CopyCategories(ExchangeService SourceService, ExchangeService TargetService, bool ClearOnImport, string SourceAddress, string TargetAddress)
         {
             if (SourceService != null && TargetService != null)
             {
                 log.WriteInfoLog("Loading source and target categories.");
                 // Loading source and target
-                var sourceCategoryList = MasterCategoryList.Bind(SourceService);
-                var targetCategoryList = MasterCategoryList.Bind(TargetService);
+                var sourceCategoryList = MasterCategoryList.Bind(SourceService, SourceAddress);
+                var targetCategoryList = MasterCategoryList.Bind(TargetService, TargetAddress);
 
                 if (ClearOnImport)
                 {

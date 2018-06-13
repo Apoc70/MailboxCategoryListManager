@@ -49,6 +49,9 @@ namespace CategoryManager
                     btnCopy.Enabled = false;
                     tabControlTools.Visible = false;
                     btnConnect.Enabled = true;
+                    chkClearTargetListBeforeImport.Checked = false;
+                    chkTargetMailboxImpersonate.Checked = false;
+                    chkTargetMailboxImpersonate.Checked = false;
                 }
             }
         }
@@ -115,7 +118,7 @@ namespace CategoryManager
 
             if (result == DialogResult.OK)
             {
-                int imported = CategoryHelper.Import(EWSService, OpenFile.FileName, chkClearOnImport.Checked);
+                int imported = CategoryHelper.Import(EWSService, OpenFile.FileName, chkClearOnImport.Checked, txtMailbox.Text);
                 if (imported > 0)
                 {
                     lblAction.Text = string.Format("{0} Categories successfully imported", imported);
@@ -142,7 +145,7 @@ namespace CategoryManager
                 {
                     try
                     {
-                        int tmpExport = CategoryHelper.Export(EWSService, SaveFile.FileName);
+                        int tmpExport = CategoryHelper.Export(EWSService, SaveFile.FileName, txtMailbox.Text);
                         // Do we have more then 0 categories? If not the export will be failing
                         if (tmpExport > 0)
                         {
@@ -186,7 +189,7 @@ namespace CategoryManager
 
                 if (TargetEWS != null)
                 {
-                    int tmpCopy = CategoryHelper.CopyCategories(EWSService, TargetEWS, chkClearTargetListBeforeImport.Checked);
+                    int tmpCopy = CategoryHelper.CopyCategories(EWSService, TargetEWS, chkClearTargetListBeforeImport.Checked, txtMailbox.Text, txtTargetAddress.Text);
                     if (tmpCopy > 0)
                     {
                         lblAction.Text = string.Format("{0} categories copied", tmpCopy);
@@ -280,10 +283,7 @@ namespace CategoryManager
         private void LoadSettings()
         {
             Key = Settings.Key;
-            if (Settings.User.Length > 0)
-            {
-                User = Settings.User;
-            }
+            User = Settings.User;
             if (Settings.Password.Length > 0)
             {
                 Password = SecureStringHelper.StringToSecureString(EncryptionHelper.DecryptString(Settings.Password, EncryptionHelper.Base64Decode(Key), 8));
@@ -356,7 +356,7 @@ namespace CategoryManager
                 // Use Autodiscover
                 try
                 {
-                    EWSService = EWSHelper.Service(Settings.UseDefaultCredentials, Settings.User, Password, txtMailbox.Text, Settings.AllowRedirection, chkImpersonate.Checked, Settings.IgnoreCertificateErrors); ;
+                    EWSService = EWSHelper.Service(Settings.UseDefaultCredentials, User, Password, txtMailbox.Text, Settings.AllowRedirection, chkImpersonate.Checked, Settings.IgnoreCertificateErrors); ;
                     if (EWSService != null)
                     {
                         return true;
@@ -377,7 +377,7 @@ namespace CategoryManager
                 // Use URL
                 try
                 {
-                    EWSService = EWSHelper.Service(Settings.UseDefaultCredentials, Settings.User, Password, txtMailbox.Text, Settings.URL, chkImpersonate.Checked, Settings.IgnoreCertificateErrors);
+                    EWSService = EWSHelper.Service(Settings.UseDefaultCredentials, User, Password, txtMailbox.Text, Settings.URL, chkImpersonate.Checked, Settings.IgnoreCertificateErrors);
                     if (EWSService != null)
                     {
                         return true;

@@ -164,7 +164,7 @@ namespace CategoryManager
 
                 if (EWSService != null)
                 {
-                    int imported = CategoryHelper.Import(EWSService, arguments.ImportFile, arguments.ClearOnImport);
+                    int imported = CategoryHelper.Import(EWSService, arguments.ImportFile, arguments.ClearOnImport, arguments.Mailbox);
                     Console.WriteLine(string.Format("{0} categories imported", imported));
                     Environment.Exit(0);
 
