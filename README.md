@@ -8,12 +8,12 @@ The project is provided as a Visual Studio solution with the following requireme
 
 Code libraries part of the solution:
 
-* Exchange Web Services API 
+* Exchange Web Services API
 * log4net
 
 ## Functionality
 
-The Category List Manager allows you top connect to a source mailbox which is either hosted on an on-premises Exchange Server or in Exchange Online using Exchange Web Services (_EWS_). You can use AutoDiscover or a static Url to connect to the Exchange Server.
+The Category List Manager allows you to connect to a source mailbox which is either hosted on an on-premises Exchange Server or in Exchange Online using Exchange Web Services (_EWS_). You can use AutoDiscover or a static Url to connect to the Exchange Server.
 
 By default the solution uses the credentials of the user executing the program. These credentials are referred to as _default credentials_. You can use the _Settings_ form to set dedicated credentials of an user with appropriate access rights to the mailbox(es).
 
@@ -23,13 +23,17 @@ The program helps you to
 * Import a master category list Xml file to into a mailbox
 * Copy a master category list from a source mailbox to a target mailbox
 
-The suported _target_ mailbox types are:
+The supported _target_ mailbox types are:
 
 * User Mailbox
 * Shared Mailbox
 * Microsoft Teams Mailbox
 
-The GUI comes with an easy-to-use UI. The functionality is described in the next paragraphs.
+The tool supports GUI and command line usage.
+
+Use _CategoryManager.exe -help_ to get the most recent command line help information.
+
+The GUI comes with an easy-to-use UI. The GUI functionality is described in the next paragraphs.
 
 ### Main Form
 
@@ -97,10 +101,11 @@ If you have any questions about this solution or found an issue you would like t
 
 Written by: Torsten Schlopsnies, Thomas Stensitzki
 
+Additional credits go to: [Henning Krause](http://www.infini-tec.de/post/2011/07/28/Working-with-the-Master-Category-List%E2%80%93EWS-edition.aspx)
+
 Stay connected:
 
 * Torsten @Twitter: [https://twitter.com/t_eschl](https://twitter.com/t_eschl)
-
 * Thomas' Blog: [http://justcantgetenough.granikos.eu](http://justcantgetenough.granikos.eu)
 * Thomas @Twitter: [https://twitter.com/stensitzki](https://twitter.com/stensitzki)
 * Thomas @LinkedIn: [http://de.linkedin.com/in/thomasstensitzki](http://de.linkedin.com/in/thomasstensitzki)

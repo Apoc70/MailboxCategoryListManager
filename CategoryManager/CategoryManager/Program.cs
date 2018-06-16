@@ -195,8 +195,8 @@ namespace CategoryManager
 
         static void DisplayHelp()
         {
-            Console.WriteLine("ManageCategoriesCmd - Usage:");
-            Console.WriteLine("ManageCategoriesCmd.exe -mailbox \"user@example.com\" -import \"C:\\categories.xml\" [-ignorecertificate] [-url \"https://server/EWS/Exchange.asmx\"] [-allowredirection] [-user user@example.com] [-password Pa$$w0rd] [-impersonate] [-clearonimport] [-usesettings]");
+            Console.WriteLine("CategoryManager - Usage:");
+            Console.WriteLine("CategoryManager.exe -mailbox \"user@example.com\" -import \"C:\\categories.xml\" [-ignorecertificate] [-url \"https://server/EWS/Exchange.asmx\"] [-allowredirection] [-user user@example.com] [-password Pa$$w0rd] [-impersonate] [-clearonimport] [-usesettings]");
             Console.WriteLine("If no user or password is given the application uses the user credentials");
         }
 
