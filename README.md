@@ -4,12 +4,16 @@ The Master Category List Manager provides a GUI interface to access the _master 
 
 The project is provided as a Visual Studio solution with the following requirements
 
-* .NET Framework 4.6.1
+* .NET Framework 4.8
 
 Code libraries part of the solution:
 
 * Exchange Web Services API
 * log4net
+
+## History
+
+* 1.1.0.0 : Update to fix import issue for command line version, thanks to Darryl Aday
 
 ## Functionality
 
