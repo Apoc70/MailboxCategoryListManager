@@ -187,9 +187,9 @@ namespace CategoryManager
         /// </summary>
         /// <param name="SourceService">EWS service (source mailbox)</param>
         /// <param name="TargetService">EWS service (target mailbox)</param>
-        /// <param name="ClearOnImport">>If set all categories is the target mailbox will be deleted before import</param>
-        /// <param name="SourceAddress">SMTP address from the source mailbox</param>
-        /// <param name="TargetAddress">SMTP address from the target mailbox</param>
+        /// <param name="ClearOnImport">>If set all categories in the target mailbox will be deleted before import</param>
+        /// <param name="SourceAddress">SMTP address of the source mailbox</param>
+        /// <param name="TargetAddress">SMTP address of the target mailbox</param>
         /// <returns>Count of copied categories</returns>
         public static int CopyCategories(ExchangeService SourceService, ExchangeService TargetService, bool ClearOnImport, string SourceAddress, string TargetAddress)
         {

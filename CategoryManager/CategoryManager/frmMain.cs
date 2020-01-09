@@ -32,6 +32,7 @@ using System.Windows.Forms;
 using Microsoft.Exchange.WebServices.Data;
 using System.Xml.Serialization;
 using System.Security;
+using System.Reflection;
 
 namespace CategoryManager
 {
@@ -44,6 +45,7 @@ namespace CategoryManager
         private ExchangeHelper TargetHelper = new ExchangeHelper();
         private ExchangeService EWSService, TargetEWS;
         private static readonly LogHelper log = new LogHelper();
+        
 
         private bool ConnectionState = false;
         private bool Connected
@@ -132,7 +134,7 @@ namespace CategoryManager
         {
             OpenFileDialog OpenFile = new OpenFileDialog
             {
-                Filter = "Serialized Categories|*.xml",
+                Filter = "Serialized categories|*.xml",
                 Title = "Select a file name to save"
             };
             DialogResult result = OpenFile.ShowDialog();
@@ -146,7 +148,7 @@ namespace CategoryManager
                 }
                 else
                 {
-                    lblAction.Text = "No categories where imported. Check log or import file.";
+                    lblAction.Text = "No categories were imported. Check log or import file.";
                 }
             }
         }
@@ -299,6 +301,26 @@ namespace CategoryManager
             LoadSettings();
             SaveSettings();
             btnConnect.Enabled = false;
+            lblVersion.Text = GetType().Assembly.GetName().Version.ToString();
+        }
+
+        private void lnkGithub_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            try
+            {
+                OpenGitHubLink();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Unable to open GitHub link.");
+            }
+        }
+
+        private void OpenGitHubLink()
+        {
+            lnkGithub.LinkVisited = true;
+            
+            System.Diagnostics.Process.Start("https://go.granikos.eu/CategoryManager");
         }
 
         private void LoadSettings()
