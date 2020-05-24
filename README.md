@@ -107,16 +107,19 @@ Written by: Torsten Schlopsnies, Thomas Stensitzki
 
 Additional credits go to: [Henning Krause](http://www.infini-tec.de/post/2011/07/28/Working-with-the-Master-Category-List%E2%80%93EWS-edition.aspx)
 
-Stay connected:
+## Stay connected
 
-* Torsten @Twitter: [https://twitter.com/t_eschl](https://twitter.com/t_eschl)
-* Thomas' Blog: [http://justcantgetenough.granikos.eu](http://justcantgetenough.granikos.eu)
-* Thomas @Twitter: [https://twitter.com/stensitzki](https://twitter.com/stensitzki)
-* Thomas @LinkedIn: [http://de.linkedin.com/in/thomasstensitzki](http://de.linkedin.com/in/thomasstensitzki)
-* Github: [https://github.com/Apoc70](https://github.com/Apoc70)
+- Torsten @Twitter: [https://twitter.com/t_eschl](https://twitter.com/t_eschl)
+
+- My Blog: [http://justcantgetenough.granikos.eu](http://justcantgetenough.granikos.eu)
+- Twitter: [https://twitter.com/stensitzki](https://twitter.com/stensitzki)
+- LinkedIn: [http://de.linkedin.com/in/thomasstensitzki](http://de.linkedin.com/in/thomasstensitzki)
+- Github: [https://github.com/Apoc70](https://github.com/Apoc70)
+- MVP Blog: [https://blogs.msmvps.com/thomastechtalk/](https://blogs.msmvps.com/thomastechtalk/)
+- Tech Talk YouTube Channel (DE): [http://techtalk.granikos.eu](http://techtalk.granikos.eu)
 
 For more Office 365, Cloud Security, and Exchange Server stuff checkout services provided by Granikos
 
-* Blog: [http://blog.granikos.eu](http://blog.granikos.eu)
-* Website: [https://www.granikos.eu/en/](https://www.granikos.eu/en/)
-* Twitter: [https://twitter.com/granikos_de](https://twitter.com/granikos_de)
+- Blog: [http://blog.granikos.eu](http://blog.granikos.eu)
+- Website: [https://www.granikos.eu/en/](https://www.granikos.eu/en/)
+- Twitter: [https://twitter.com/granikos_de](https://twitter.com/granikos_de)
