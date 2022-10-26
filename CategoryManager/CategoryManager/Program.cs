@@ -1,16 +1,24 @@
-﻿// CategoryManager
-//
-// Authors: Torsten Schlopsnies, Thomas Stensitzki
-//
-// Published under MIT license
-//
-// Read more in the following blog post: 
-//
-// Find more Exchange community scripts at: http://scripts.granikos.eu
-// Please report issues or feature request here: 
-//
-// Version 1.0.0.0 | Published xxxx-xx-xx
-
+﻿// MIT License
+// 
+// Copyright (c) 2018 Thomas Stensitzki, Torsten Schlopsnies
+// 
+// Permission is hereby granted, free of charge, to any person obtaining a copy
+// of this software and associated documentation files (the "Software"), to deal
+// in the Software without restriction, including without limitation the rights
+// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+// copies of the Software, and to permit persons to whom the Software is
+// furnished to do so, subject to the following conditions:
+// 
+// The above copyright notice and this permission notice shall be included in all
+// copies or substantial portions of the Software.
+// 
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+// SOFTWARE.
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -129,9 +137,9 @@ namespace CategoryManager
                     URL = "";
                 }
 
-                if (arguments.ImportFile.Length == 0)
+                if (string.IsNullOrEmpty(arguments.ImportFile) && string.IsNullOrEmpty(arguments.ExportFile))
                 {
-                    log.WriteErrorLog("No import file was given.");
+                    log.WriteErrorLog("No import or export file was given.");
                     DisplayHelp();
                     Environment.Exit(1);
                 }
@@ -147,7 +155,6 @@ namespace CategoryManager
                     {
                         EWSService = EWSHelper.Service(UseDefaultCredentials, User, Password, Mailbox, AllowRedirection, arguments.Impersonate, IgnoreCertificateErrors);
                     }
-
                 }
                 else
                 {
@@ -164,15 +171,24 @@ namespace CategoryManager
 
                 if (EWSService != null)
                 {
-                    int imported = CategoryHelper.Import(EWSService, arguments.ImportFile, arguments.ClearOnImport, arguments.Mailbox);
-                    Console.WriteLine(string.Format("{0} categories imported", imported));
-                    Environment.Exit(0);
-
+                    if (!(string.IsNullOrEmpty(arguments.ImportFile)))
+                    {
+                        int imported = CategoryHelper.Import(EWSService, arguments.ImportFile, arguments.ClearOnImport, arguments.Mailbox);
+                        Console.WriteLine(string.Format("{0} categories imported", imported));
+                        Environment.Exit(0);
+                    }
+                    else  // arguments.ExportFile should be non-null and not empty
+                    {
+                        int exported = CategoryHelper.Export(EWSService, arguments.ExportFile, arguments.Mailbox);
+                        Console.WriteLine(string.Format("{0} categories exported", exported));
+                        Environment.Exit(0);
+                    }
                 }
                 else
                 {
-                    Console.WriteLine("Error on creating the service. Check permissions and if the server is avaiable.");
-                    log.WriteErrorLog("Error on creating the service. Check permissions and if the server is avaiable.");
+                    string errorMessage = "Error on creating the service. Check permissions and if the server is available.";
+                    Console.WriteLine(errorMessage);
+                    log.WriteErrorLog(errorMessage);
                     Environment.Exit(2);
                 }
             }
@@ -187,8 +203,8 @@ namespace CategoryManager
 
         static void DisplayHelp()
         {
-            Console.WriteLine("ManageCategoriesCmd - Usage:");
-            Console.WriteLine("ManageCategoriesCmd.exe -mailbox \"user@example.com\" -import \"C:\\categories.xml\" [-ignorecertificate] [-url \"https://server/EWS/Exchange.asmx\"] [-allowredirection] [-user user@example.com] [-password Pa$$w0rd] [-impersonate] [-clearonimport] [-usesettings]");
+            Console.WriteLine("CategoryManager - Usage:");
+            Console.WriteLine("CategoryManager.exe -mailbox \"user@example.com\" {-import \"C:\\categories.xml\" | -export \"C:\\categories.xml\"} [-ignorecertificate] [-url \"https://server/EWS/Exchange.asmx\"] [-allowredirection] [-user user@example.com] [-password Pa$$w0rd] [-impersonate] [-clearonimport] [-usesettings]");
             Console.WriteLine("If no user or password is given the application uses the user credentials");
         }
 
